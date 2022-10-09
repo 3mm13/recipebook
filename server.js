@@ -15,11 +15,10 @@ app
   .use('/', require('./routes'));
 
 mongodb.initDb((err, mongodb) => {
-    if (err) {
-        console.log(err);
-    }
-    else {
-        app.listen(port);
-        console.log(`Connected to the Database and listening on port ${port}`);
-    }
-})
+  if (err) {
+    console.log(err);
+  } else {
+    app.listen(port);
+    console.log(`Connected to DB and listening on ${port}`);
+  }
+});
