@@ -44,7 +44,7 @@ const getAll = async (req, res, next) => {
       res.status(500).json(response.error || 'An error occurred while trying to add an user. Please try again');
     }
   
-  }
+  };
 
   const updateUser = async (req, res) => {
       const userId = new ObjectId(req.params.id);
