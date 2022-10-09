@@ -26,7 +26,7 @@ const addRecipe = (req, res, next) => {
         recipeName: 'required|string',
         mealType: 'required|string',
         recipeUrl: 'required|string',
-        tips: 'string',
+        tips: ['string'],
         tasteRating: 'required|string',
         difficulty: 'required|string',
         timeNeeded: 'required|string'
