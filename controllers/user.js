@@ -6,10 +6,16 @@ const getAll = async (req, res, next) => {
     .getDb()
     .db()
     .collection('user')
-    .find();
-    result.toArray().then((lists) => {
-      res.setHeader('Content-Type', 'application/json');
-      res.status(200).json(lists);
+    .find()
+    .toArray((err, lists) => {
+      if(err) {
+        res.status(400).json({ message: err }) || "There was an error while trying to perform this command. Please try again.";
+      }
+      else {
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).json(lists);
+      }
+      
     });
   };
 

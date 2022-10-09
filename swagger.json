@@ -5,10 +5,10 @@
     "description": "This is an API that will retrieve all of the yummiest recipes just for YOU",
     "version": "1.0.0"
   },
-  "host": "recipebook-1sdl.onrender.com",
+  "host": "localhost:8080",
   "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     "/user/": {
