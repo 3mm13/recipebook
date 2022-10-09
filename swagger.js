@@ -5,8 +5,8 @@ const doc = {
     title: 'Recipe Book API',
     description: 'This is an API that will retrieve all of the yummiest recipes just for YOU',
   },
-  host: 'localhost:8080',
-  schemes: ['http'],
+  host: 'recipebook-1sdl.onrender.com',
+  schemes: ['https'],
 };
 
 const outputFile = './swagger.json';

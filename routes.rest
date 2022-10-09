@@ -6,9 +6,24 @@ POST http://localhost:8080/user HTTP/1.1
 content-type: application/json
 
 {
-    "firstName": "Testy",
+    "firstName": "firstname",
     "lastName": "lastNamey",
     "email": "test@test.com",
     "password": "password123",
     "birthday": "01/01/1990"
 }
+
+###
+PUT http://localhost:8080/user/63422f2508668b578b300ce3 HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "hihihi",
+    "lastName": "lastNamey",
+    "email": "test@test.com",
+    "password": "333",
+    "birthday": "01/01/1990"
+}
+
+###
+DELETE http://localhost:8080/user/63422f2508668b578b300ce3

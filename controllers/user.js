@@ -46,7 +46,46 @@ const getAll = async (req, res, next) => {
   
   }
 
+  const updateUser = async (req, res) => {
+      const userId = new ObjectId(req.params.id);
+      const user = {
+        firstName: req.params.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        password: req.body.password,
+        birthday: req.body.birthday,
+      }
+      const response = await mongodb
+      .getDb()
+      .db()
+      .collection('user')
+      .replaceOne({ _id: userId }, user);
+      console.log(response);
+      if (response.modifiedCount > 0) {
+        res.status(204).send();
+      } else {
+        res.status(500).json(response.error || 'Some error occurred while updating the contact.');
+      }
+}
+
+const deleteUser = async (req, res) => {
+  const userId = new ObjectId(req.params.id);
+  const response = await mongodb
+  .getDb()
+  .db()
+  .collection('user').
+  remove({ _id: userId }, true);
+  console.log(response);
+  if (response.deletedCount > 0) {
+    res.status(204).send();
+  } else {
+    res.status(500).json(response.error || 'Some error occurred while deleting the contact.');
+  }
+};
+
   module.exports = {
     getAll,
-    createUser
+    createUser,
+    updateUser,
+    deleteUser
   }
